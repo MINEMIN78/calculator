@@ -28,13 +28,26 @@ class ViewController: UIViewController {
     
     @IBAction func equal(){
         if operation == 1{
-            label.text = String(number1 + number2)
+            number3 = number2 + number1
+            label.text = String(number3)
+            number2 = number3
+            
+            
         }else if operation == 2{
-            label.text = String(number2 - number1)
+            number3 = number2 - number1
+            label.text = String(number3)
+            number2 = number3
+            
         }else if operation == 3{
-            label.text = String(number2 * number1)
+            number3 = number2 * number1
+            label.text = String(number3)
+            number2 = number3
+            
         }else if operation == 4{
-            label.text = String(number2 / number1)
+            number3 = number2 / number1
+            label.text = String(number3)
+            number2 = number3
+            
         }
     }
     
