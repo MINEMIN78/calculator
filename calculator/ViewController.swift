@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var number2 : Int = 0
     var number3 : Int = 0
     var operation : Int = 0
+    var count : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,26 +28,44 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equal(){
+        number3 = number1
         if operation == 1{
-            number3 = number2 + number1
-            label.text = String(number3)
-            number2 = number3
-            
+            if count > 0{
+                number2 = number3 + number2
+            }else {
+                number2 = number2 + number1
+                count = 1
+            }
+            label.text = String(number2)
             
         }else if operation == 2{
-            number3 = number2 - number1
-            label.text = String(number3)
-            number2 = number3
+            if count > 0{
+                number2 = number2 - number3
+            }else {
+                number2 = number2 - number1
+                count = 1
+            }
+            label.text = String(number2)
+           
             
         }else if operation == 3{
-            number3 = number2 * number1
-            label.text = String(number3)
-            number2 = number3
+            if count > 0{
+                number2 = number2 * number3
+            }else {
+                number2 = number2 * number1
+                count = 1
+            }
+            label.text = String(number2)
             
         }else if operation == 4{
-            number3 = number2 / number1
-            label.text = String(number3)
-            number2 = number3
+            if count > 0{
+                number2 = number2 / number3
+            }else {
+                number2 = number2 / number1
+                count = 1
+            }
+            label.text = String(number2)
+
             
         }
     }
@@ -95,28 +114,40 @@ class ViewController: UIViewController {
         label.text = String(0)
         
         operation = 1
-        number2 = number1
+        if count == 0{
+            number2 = number1
+            count = 1
+        }
         number1 = 0
     }
     @IBAction func minus(){
         label.text = String(0)
         
         operation = 2
-        number2 = number1
+        if count == 0{
+            number2 = number1
+            count = 1
+        }
         number1 = 0
     }
     @IBAction func multi(){
         label.text = String(0)
         
         operation = 3
-        number2 = number1
+        if count == 0{
+            number2 = number1
+            count = 1
+        }
         number1 = 0
     }
-    @IBAction func waru(){
+    @IBAction func div(){
         label.text = String(0)
         
         operation = 4
-        number2 = number1
+        if count == 0{
+            number2 = number1
+            count = 1
+        }
         number1 = 0
     }
     @IBAction func clear(){
@@ -124,6 +155,8 @@ class ViewController: UIViewController {
         
         number1 = 0
         number2 = 0
+        number3 = 0
+        count = 0
     }
 
 
